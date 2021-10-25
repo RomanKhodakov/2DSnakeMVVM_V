@@ -9,17 +9,17 @@ namespace SnakeMVVM
         {
             Camera camera = Camera.main;
             var playerFactoryModel = new PlayerFactoryModel();
-            var bonusFactoryViewModel = new BonusFactoryModel();
+            var bonusFactoryModel = new BonusFactoryModel();
             var uiReferencesModel = new UIReferencesModel();
             var playerScoreModel = new ScoreModel();
             
             var playerInitializationViewModel = new PlayerInitializationViewModel(playerFactoryModel, data.Player);
             var playerMoveViewModel = new PlayerMoveViewModel(playerInitializationViewModel, data.Player);
 
-            var bonusInitializationViewModel = new BonusInitializationViewModel(bonusFactoryViewModel, data.BonusData);
-            var bonusSpawnerViewModel = new BonusSpawnerViewModel(data.BonusData, bonusFactoryViewModel, 
+            var bonusInitializationViewModel = new BonusInitializationViewModel(bonusFactoryModel, data.BonusData);
+            var bonusSpawnerViewModel = new BonusSpawnerViewModel(data.BonusData, bonusFactoryModel, 
                 bonusInitializationViewModel, playerInitializationViewModel.GetPlayerTransform());
-            var bonusTriggerViewModel = new BonusTriggerViewModel(bonusFactoryViewModel,bonusInitializationViewModel, 
+            var bonusTriggerViewModel = new BonusTriggerViewModel(bonusFactoryModel,bonusInitializationViewModel, 
                     playerInitializationViewModel, playerScoreModel);
 
             var inputViewModel = new InputViewModel();
